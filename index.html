@@ -1,234 +1,747 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Online Ticket Reservation System</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Electronic Gadgets Shopping System</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f4f4;
+}
+
+header{
+background:lightblue;
+text-align:center;
+padding:20px;
+position:relative;
+}
+
+.logo{
+font-size:50px;
+}
+
+.cart{
+position:absolute;
+top:20px;
+right:30px;
+background:white;
+padding:10px 20px;
+border-radius:20px;
+font-weight:bold;
+border:2px solid blue;
+}
+
+nav{
+background:#0066cc;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:20px;
+font-size:18px;
+font-weight:bold;
+}
+
+nav a:hover{
+color:yellow;
+}
+
+main{
+padding:20px;
+}
+
+.intro{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0px 0px 10px gray;
+line-height:1.6;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+margin-top:20px;
+}
+
+table,th,td{
+border:1px solid black;
+}
+
+th{
+background:lightblue;
+}
+
+th,td{
+padding:10px;
+text-align:center;
+}
+
+.gallery{
+text-align:center;
+}
+
+.gallery img{
+margin:10px;
+border-radius:10px;
+cursor:move;
+}
+
+.media{
+text-align:center;
+margin-top:30px;
+}
+
+form{
+background:white;
+width:550px;
+margin:auto;
+padding:20px;
+border-radius:10px;
+box-shadow:0px 0px 10px gray;
+}
+
+input,select,textarea{
+width:95%;
+padding:10px;
+margin-top:5px;
+}
+
+input[type=submit],
+input[type=reset]{
+width:150px;
+background:#0066cc;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+button{
+background:#0066cc;
+color:white;
+padding:10px 20px;
+border:none;
+cursor:pointer;
+}
+
+footer{
+background:lightgray;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+
+#cartBox{
+
+width:450px;
+height:250px;
+border:4px dashed blue;
+background:white;
+margin:auto;
+padding:20px;
+text-align:center;
+border-radius:15px;
+}
+
+</style>
+
+<script>
+
+function getLocation(){
+
+if(navigator.geolocation){
+
+navigator.geolocation.getCurrentPosition(showPosition);
+
+}
+
+else{
+
+alert("Geolocation is not supported.");
+
+}
+
+}
+
+function showPosition(position){
+
+document.getElementById("lat").innerHTML=
+position.coords.latitude;
+
+document.getElementById("lon").innerHTML=
+position.coords.longitude;
+
+}
+
+function allowDrop(ev){
+
+ev.preventDefault();
+
+}
+
+function drag(ev){
+
+ev.dataTransfer.setData("text",ev.target.id);
+
+}
+
+function drop(ev){
+
+ev.preventDefault();
+
+var data=ev.dataTransfer.getData("text");
+
+var node=document.getElementById(data);
+
+var clone=node.cloneNode(true);
+
+clone.id="";
+
+clone.style.width="120px";
+
+clone.style.height="100px";
+
+clone.style.margin="10px";
+
+ev.currentTarget.appendChild(clone);
+
+}
+
+</script>
+
 </head>
 
 <body>
 
+<header>
+
+<div class="cart">
+
+🛒 Cart (0)
+
+</div>
+
+<div class="logo">
+
+🛍️
+
+</div>
+
+<h1>
+
+ONLINE ELECTRONIC GADGETS SHOPPING SYSTEM
+
+</h1>
+
+<p>
+
+Best Electronic Gadgets at Affordable Prices
+
+</p>
+
+</header>
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="#">Products</a>
+
+<a href="#">Categories</a>
+
+<a href="#">Gallery</a>
+
+<a href="#">Contact</a>
+
+</nav>
+
+<main>
+
+<div class="intro">
+
+<h2 align="center">
+
+WELCOME TO OUR STORE
+
+</h2>
+
+<p>
+
+Welcome to our Electronic Gadgets Shopping System.
+
+We provide high-quality laptops, smart TVs,
+
+mobile phones and computer accessories.
+
+Our goal is to offer the latest gadgets
+
+with affordable prices, secure payments,
+
+fast delivery and excellent customer support.
+
+Explore our collection and enjoy a smart
+
+shopping experience.
+
+</p>
+
+</div>
+
+<h2 align="center">
+
+PRODUCT CATEGORIES
+
+</h2>
+
 <center>
-    <h1>Online Ticket Reservation System</h1>
 
-    <p>
-        Search tickets based on your travel needs. If seats are available,
-        make your payment and confirm your reservation.
-    </p>
+<img src="gadgets.jpg"
 
-    <img src="Buses.jpg" width="700" height="350" alt="Bus Image">
+width="500"
+
+height="500"
+
+usemap="#gadgets">
+
+<map name="gadgets">
+
+<area shape="rect"
+
+coords="0,0,250,250"
+
+href="https://www.hp.com"
+
+target="_blank">
+
+<area shape="rect"
+
+coords="250,0,500,250"
+
+href="https://www.samsung.com"
+
+target="_blank">
+
+<area shape="rect"
+
+coords="0,250,250,500"
+
+href="https://www.apple.com"
+
+target="_blank">
+
+<area shape="rect"
+
+coords="250,250,500,500"
+
+href="https://www.logitech.com"
+
+target="_blank">
+
+</map>
+
 </center>
+<!-- ================= AVAILABLE PRODUCTS ================= -->
 
-<hr>
-
-<h3>Features</h3>
-
-<ol>
-    <li>Smart Search</li>
-    <li>Secure User Accounts</li>
-    <li>Online Seat Booking</li>
-    <li>Easy Payment</li>
-    <li>Instant Ticket Confirmation</li>
-</ol>
-
-<hr>
-
-<h3>Available Bus Details</h3>
-
-<table border="1" cellpadding="8">
-
-    <tr>
-        <th>S.No</th>
-        <th>Vehicle</th>
-        <th>Source</th>
-        <th>Destination</th>
-        <th>Departure Time</th>
-        <th>Arrival Time</th>
-        <th>Ticket Price (₹)</th>
-    </tr>
-
-    <tr>
-        <td>1</td>
-        <td>Bus</td>
-        <td>Madurai</td>
-        <td>Chennai</td>
-        <td>9:00 AM</td>
-        <td>7:00 PM</td>
-        <td>400</td>
-    </tr>
-
-    <tr>
-        <td>2</td>
-        <td>Bus</td>
-        <td>Madurai</td>
-        <td>Coimbatore</td>
-        <td>10:00 AM</td>
-        <td>4:00 PM</td>
-        <td>350</td>
-    </tr>
-
-    <tr>
-        <td>3</td>
-        <td>Bus</td>
-        <td>Madurai</td>
-        <td>Salem</td>
-        <td>10:00 AM</td>
-        <td>2:00 PM</td>
-        <td>300</td>
-    </tr>
-
-    <tr>
-        <td>4</td>
-        <td>Bus</td>
-        <td>Trichy</td>
-        <td>Salem</td>
-        <td>8:30 AM</td>
-        <td>1:00 PM</td>
-        <td>250</td>
-    </tr>
-
-    <tr>
-        <td>5</td>
-        <td>Bus</td>
-        <td>Coimbatore</td>
-        <td>Salem</td>
-        <td>10:00 AM</td>
-        <td>2:00 PM</td>
-        <td>250</td>
-    </tr>
-
-    <tr>
-        <td>6</td>
-        <td>Bus</td>
-        <td>Chennai</td>
-        <td>Bangalore</td>
-        <td>6:00 AM</td>
-        <td>12:00 PM</td>
-        <td>550</td>
-    </tr>
-
-    <tr>
-        <td>7</td>
-        <td>Bus</td>
-        <td>Madurai</td>
-        <td>Trichy</td>
-        <td>7:00 AM</td>
-        <td>10:00 AM</td>
-        <td>180</td>
-    </tr>
-
-    <tr>
-        <td>8</td>
-        <td>Bus</td>
-        <td>Salem</td>
-        <td>Chennai</td>
-        <td>5:00 PM</td>
-        <td>11:00 PM</td>
-        <td>450</td>
-    </tr>
-
-    <tr>
-        <td>9</td>
-        <td>Bus</td>
-        <td>Coimbatore</td>
-        <td>Madurai</td>
-        <td>1:00 PM</td>
-        <td>6:00 PM</td>
-        <td>320</td>
-    </tr>
-
-    <tr>
-        <td>10</td>
-        <td>Bus</td>
-        <td>Trichy</td>
-        <td>Chennai</td>
-        <td>3:00 PM</td>
-        <td>8:30 PM</td>
-        <td>380</td>
-    </tr>
-
-</table>
-
-<hr>
-
-<h3>Gallery</h3>
+<h2 align="center">AVAILABLE PRODUCTS</h2>
 
 <table>
 
-    <tr>
-        <td>
-            <img src="pic1.jpg" width="250" height="180">
-        </td>
+<tr>
+<th>S.No</th>
+<th>Product</th>
+<th>Brand</th>
+<th>Price</th>
+<th>Warranty</th>
+</tr>
 
-        <td>
-            <img src="pic2.jpg" width="250" height="180">
-        </td>
+<tr>
+<td>1</td>
+<td>HP Laptop</td>
+<td>HP</td>
+<td>₹55,000</td>
+<td>1 Year</td>
+</tr>
 
-        <td>
-            <img src="pic3.jpg" width="250" height="180">
-        </td>
-    </tr>
+<tr>
+<td>2</td>
+<td>Dell Laptop</td>
+<td>Dell</td>
+<td>₹62,000</td>
+<td>2 Years</td>
+</tr>
 
-    <tr>
-        <td>
-            <img src="pic4.jpg" width="250" height="180">
-        </td>
+<tr>
+<td>3</td>
+<td>Samsung Smart TV</td>
+<td>Samsung</td>
+<td>₹48,000</td>
+<td>2 Years</td>
+</tr>
 
-        <td>
-            <img src="pic5.jpg" width="250" height="180">
-        </td>
+<tr>
+<td>4</td>
+<td>LG Smart TV</td>
+<td>LG</td>
+<td>₹52,000</td>
+<td>2 Years</td>
+</tr>
 
-        <td>
-            <img src="pic6.jpg" width="250" height="180">
-        </td>
-    </tr>
+<tr>
+<td>5</td>
+<td>Apple iPhone</td>
+<td>Apple</td>
+<td>₹79,000</td>
+<td>1 Year</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Samsung Mobile</td>
+<td>Samsung</td>
+<td>₹35,000</td>
+<td>1 Year</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Wireless Mouse</td>
+<td>Logitech</td>
+<td>₹850</td>
+<td>6 Months</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Gaming Mouse</td>
+<td>HP</td>
+<td>₹1,200</td>
+<td>1 Year</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>Lenovo Laptop</td>
+<td>Lenovo</td>
+<td>₹58,000</td>
+<td>2 Years</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Sony Smart TV</td>
+<td>Sony</td>
+<td>₹60,000</td>
+<td>2 Years</td>
+</tr>
 
 </table>
 
-<hr>
+<br>
 
-<h3>Reservation Form</h3>
+<!-- ================= PRODUCT GALLERY ================= -->
+
+<h2 align="center">PRODUCT GALLERY</h2>
+
+<p align="center">
+<b>Drag any product image into the Shopping Cart.</b>
+</p>
+
+<div class="gallery">
+
+<img
+id="img1"
+src="laptop.jpg"
+width="220"
+height="170"
+draggable="true"
+ondragstart="drag(event)">
+
+<img
+id="img2"
+src="tv.jpg"
+width="220"
+height="170"
+draggable="true"
+ondragstart="drag(event)">
+
+<img
+id="img3"
+src="mobile.jpg"
+width="220"
+height="170"
+draggable="true"
+ondragstart="drag(event)">
+
+<img
+id="img4"
+src="mouse.jpg"
+width="220"
+height="170"
+draggable="true"
+ondragstart="drag(event)">
+
+</div>
+
+<br>
+
+<!-- ================= VIDEO ================= -->
+
+<div class="media">
+
+<h2>PRODUCT DEMO VIDEO</h2>
+
+<video width="500" controls>
+
+<source src="video.mp4" type="video/mp4">
+
+Your browser does not support the video tag.
+
+</video>
+
+</div>
+
+<br>
+
+<!-- ================= AUDIO ================= -->
+
+<div class="media">
+
+<h2>PRODUCT INFORMATION AUDIO</h2>
+
+<audio controls>
+
+<source src="audio.mp3" type="audio/mpeg">
+
+Your browser does not support the audio element.
+
+</audio>
+
+</div>
+
+<br>
+<h2 align="center">SHOPPING CART</h2>
+
+<p align="center">
+Drag any gadget from the Product Gallery and drop it into the Shopping Cart.
+</p>
+
+<center>
+
+<div id="cartBox"
+ondrop="drop(event)"
+ondragover="allowDrop(event)">
+
+<h2>🛒 Shopping Cart</h2>
+
+<p>Drop Products Here</p>
+
+</div>
+
+</center>
+
+<br><br>
+
+<!-- ================= CUSTOMER REGISTRATION ================= -->
+
+<h2 align="center">
+
+CUSTOMER REGISTRATION FORM
+
+</h2>
 
 <form>
 
-    <label>User Name:</label>
-    <input type="text" name="username">
-    <br><br>
+<label><b>Customer Name</b></label>
 
-    <label>Phone Number:</label>
-    <input type="tel" name="phone">
-    <br><br>
+<input
+type="text"
+placeholder="Enter your name"
+required>
 
-    <label>Email:</label>
-    <input type="email" name="email">
-    <br><br>
+<br><br>
 
-    <label>Source (From):</label>
-    <input type="text" name="source">
-    <br><br>
+<label><b>Email Address</b></label>
 
-    <label>Destination (To):</label>
-    <input type="text" name="destination">
-    <br><br>
+<input
+type="email"
+placeholder="Enter your email"
+required>
 
-    <label>Journey Date:</label>
-    <input type="date" name="date">
-    <br><br>
+<br><br>
 
-    <label>Number of Tickets:</label>
-    <input type="number" min="1" max="10">
-    <br><br>
+<label><b>Phone Number</b></label>
 
-    <input type="submit" value="Reserve Ticket">
-    <input type="reset" value="Clear">
+<input
+type="tel"
+placeholder="Enter phone number">
+
+<br><br>
+
+<label><b>Select Product</b></label>
+
+<select>
+
+<option>HP Laptop</option>
+
+<option>Dell Laptop</option>
+
+<option>Samsung Smart TV</option>
+
+<option>LG Smart TV</option>
+
+<option>Apple iPhone</option>
+
+<option>Samsung Mobile</option>
+
+<option>Wireless Mouse</option>
+
+<option>Gaming Mouse</option>
+
+</select>
+
+<br><br>
+
+<label><b>Quantity</b></label>
+
+<input
+type="number"
+min="1"
+max="10">
+
+<br><br>
+
+<label><b>Delivery Address</b></label>
+
+<textarea
+rows="5"
+placeholder="Enter your address"></textarea>
+
+<br><br>
+
+<input
+type="submit"
+value="Place Order">
+
+<input
+type="reset"
+value="Clear">
 
 </form>
 
-<hr>
+<br>
+<!-- ================= SHOPPING CART (DRAG & DROP) ================= -->
 
-<center>
-    <p><b>© 2026 Online Ticket Reservation System. All Rights Reserved.</b></p>
-</center>
+
+
+<!-- ================= CONTACT DETAILS ================= -->
+
+<footer>
+
+<h2>CONTACT DETAILS</h2>
+
+<p>
+<b>Electronic Gadgets Shopping System</b>
+</p>
+
+<p>
+📍 Address : 25, Anna Nagar, Madurai, Tamil Nadu
+</p>
+
+<p>
+📞 Phone : +91 98765 43210
+</p>
+
+<p>
+📧 Email : support@gadgetstore.com
+</p>
+
+<p>
+🌐 Website : www.gadgetstore.com
+</p>
+
+<hr width="60%">
+
+<!-- ================= GEOLOCATION ================= -->
+
+<h2>STORE LOCATION</h2>
+
+<p>
+Click the button below to know your current location.
+</p>
+
+<button onclick="getLocation()">
+
+📍 Get My Location
+
+</button>
+
+<br><br>
+
+<p>
+
+<b>Latitude :</b>
+
+<span id="lat">Not Available</span>
+
+</p>
+
+<p>
+
+<b>Longitude :</b>
+
+<span id="lon">Not Available</span>
+
+</p>
+
+<hr width="60%">
+
+<!-- ================= ABOUT STORE ================= -->
+
+<h2>ABOUT OUR STORE</h2>
+
+<p>
+
+We provide genuine electronic gadgets from trusted brands.
+
+Our products include laptops, smart TVs, smartphones,
+
+and computer accessories at affordable prices.
+
+Customer satisfaction is our highest priority.
+
+</p>
+
+<hr width="60%">
+
+<p>
+
+<b>© 2026 Electronic Gadgets Shopping System</b>
+
+</p>
+
+<p>
+
+All Rights Reserved.
+
+</p>
+
+</footer>
+
+</main>
 
 </body>
+
 </html>
